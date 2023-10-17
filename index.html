@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <title>Test Press Interview - imran kaleel</title>
+    <style>
+        .main {
+            background-color: #343a40;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="main">
+    <script>
+        // reverse string
+        const reverseString = () => {
+            const rever_input = document.getElementById('reverse-input').value.toLowerCase()
+            const display = document.getElementById('revers-alert')
+
+            // reverse a given string
+            if (rever_input.trim() != '') {
+                if (rever_input.trim().length <= 100) {
+                    display.innerText = rever_input.trim().split("").reverse().join("")
+                    display.style.display = "block"
+                } else {
+                    alert("String lesser than 100 character")
+
+                }
+            } else {
+                alert("Type any string")
+            }
+        }
+
+        // Prime number
+        const primeNumber = () => {
+            const prime_input = parseInt(document.getElementById('prime-input').value)
+            const prime_display = document.getElementById('prime-alert')
+
+            if (prime_input > 1) {
+                for (let i = 2; i < prime_input; i++) {
+                    if (prime_input % i == 0) {
+                        prime_display.innerText = 'No'
+                        prime_display.style.display = "block"
+                        return
+                    }
+                }
+                prime_display.innerText = 'Yes'
+                prime_display.style.display = "block"
+            } else {
+                prime_display.innerText = 'No'
+                prime_display.style.display = "block"
+            }
+        }
+
+        // largest value
+        const largeNumber = () => {
+            const large_input = document.getElementById('large-input').value
+            const large_display = document.getElementById('large-alert')
+
+            // create array
+            const array = large_input.trim().split(',')
+            let new_array = [];
+            array.map((e) => {
+                new_array.push(parseInt(e))
+            })
+
+            // array into number
+            const result = new_array.reverse().join('')
+
+            large_display.innerText = result
+            large_display.style.display = "block"
+        }
+
+        // reverse number
+        const reverseNumber = () => {
+            const number_input = document.getElementById('number-input').value
+            const number_display = document.getElementById('number-alert')
+
+            // reverse a given string
+            if (number_input.trim() != '') {
+                number_display.innerText = parseInt(number_input.trim().split("").reverse().join(""))
+                number_display.style.display = "block"
+            } else {
+                alert("Type any number")
+            }
+        }
+
+        // maximum minimum
+        const maximum_minimum = () => {
+            const mm_input = document.getElementById('mm-input').value
+            const mm_display = document.getElementById('mm-alert')
+
+            // create array
+            const array = mm_input.trim().split(',')
+            let new_array = [];
+            array.map((e) => {
+                new_array.push(parseInt(e))
+            })
+
+            // find max and min
+            let max = 0;
+
+            new_array.map((e) => {
+                if (max < e) {
+                    max = e
+                }
+            })
+
+            let min = max;
+            new_array.map((e) => {
+                if (min > e) {
+                    min = e
+                }
+            })
+
+
+            mm_display.innerText = max + ' ' + min
+            mm_display.style.display = "block"
+        }
+    </script>
+    <nav style="position: fixed; z-index: 100; width: 100vw;" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Testpress Interview - Imran</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#revers-string">Revers string</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#prime-number">Prime number</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#largest-value">Largest value</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reverse-number">Reverse number</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#maximum-minimum">Maximum and minimum</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- reverse string -->
+    <div style="min-height: calc(100vh - 60px);" id="revers-string"
+        class="container d-flex flex-column align-items-center justify-content-center">
+        <h3>Reverse String</h3>
+        <div style="width: 100%;" class="input-group">
+            <input id="reverse-input" class="form-control " type="text" placeholder="type a string.." />
+            <button onclick="reverseString()" class="btn btn-primary" type="button">Reverse</button>
+        </div>
+        <div id="revers-alert" class="alert alert-primary mt-2" role="alert" style="display: none;">
+
+        </div>
+    </div>
+
+    <!-- Prime number -->
+    <div style="min-height: calc(100vh - 60px);" id="prime-number"
+        class="container d-flex flex-column align-items-center justify-content-center">
+        <h3>Prime number</h3>
+        <div style="width: 100%;" class="input-group">
+            <input id="prime-input" class="form-control " type="number" placeholder="156" />
+            <button onclick="primeNumber()" class="btn btn-primary" type="button">Check</button>
+        </div>
+        <div id="prime-alert" class="alert alert-primary mt-2" role="alert" style="display: none;">
+
+        </div>
+    </div>
+
+    <!-- largest value -->
+    <div style="min-height: calc(100vh - 60px);" id="largest-value"
+        class="container d-flex flex-column align-items-center justify-content-center">
+        <h3>Largest value</h3>
+        <div style="width: 100%;" class="input-group">
+            <input id="large-input" class="form-control " type="text" placeholder="54, 546, 548, 60" />
+            <button onclick="largeNumber()" class="btn btn-primary" type="button">Show</button>
+        </div>
+        <div id="large-alert" class="alert alert-primary mt-2" role="alert" style="display: none;">
+
+        </div>
+    </div>
+
+    <!-- number reverse -->
+    <div style="min-height: calc(100vh - 60px);" id="reverse-number"
+        class="container d-flex flex-column align-items-center justify-content-center">
+        <h3>Number Reverse</h3>
+        <div style="width: 100%;" class="input-group">
+            <input id="number-input" class="form-control " type="number" placeholder="988" />
+            <button onclick="reverseNumber()" class="btn btn-primary" type="button">Reverse</button>
+        </div>
+        <div id="number-alert" class="alert alert-primary mt-2" role="alert" style="display: none;">
+
+        </div>
+    </div>
+
+    <!-- maximum and minimum -->
+    <div style="min-height: calc(100vh - 60px);" id="maximum-minimum"
+        class="container d-flex flex-column align-items-center justify-content-center">
+        <h3>Maximum and Minimum</h3>
+        <div style="width: 100%;" class="input-group">
+            <input id="mm-input" class="form-control " type="text" placeholder="54, 546, 548, 60" />
+            <button onclick="maximum_minimum()" class="btn btn-primary" type="button">Reverse</button>
+        </div>
+        <div id="mm-alert" class="alert alert-primary mt-2" role="alert" style="display: none;">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
